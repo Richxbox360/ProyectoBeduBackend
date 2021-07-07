@@ -14,7 +14,7 @@ app.use('/posts', postsRoute);
 
 //Ability to create ROUTES
 app.get('/', (req,res) => {
-  res.send('We are on home');
+  res.send('We are on home!');
 });
 
 //Connect to DB
@@ -23,4 +23,7 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedT
 });
 
 //Listening to the server
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Server started at Port", PORT);
+});
